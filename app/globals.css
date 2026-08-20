@@ -1,0 +1,260 @@
+:root {
+  --stone: #ece7dc;
+  --paper: #faf8f3;
+  --ink: #23282b;
+  --ink-soft: #5c6560;
+  --moss: #5c6f52;
+  --moss-dark: #46543f;
+  --plum: #7a5d6b;
+  --plum-soft: #efe6ea;
+  --line: #d9d3c4;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 2px;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eyebrow .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--moss);
+  display: inline-block;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 2.6rem;
+  margin: 0.5rem 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 0 0 3rem;
+  max-width: 46ch;
+}
+
+.entry-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.entry-wrap {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(35, 40, 43, 0.06), 0 8px 24px rgba(35, 40, 43, 0.05);
+}
+
+.entry-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 44px;
+  width: 1px;
+  background: var(--plum);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+textarea.entry {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.6rem 1.4rem 1.6rem 4rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 2.1rem;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(2.1rem - 1px),
+      var(--line) calc(2.1rem - 1px),
+      var(--line) 2.1rem
+    ),
+    var(--paper);
+  background-position: 0 1.85rem;
+}
+
+textarea.entry::placeholder {
+  color: #a7a196;
+}
+
+textarea.entry:focus {
+  outline: none;
+  border-color: var(--moss);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+button.reflect {
+  background: var(--moss);
+  color: var(--paper);
+  border: none;
+  border-radius: 100px;
+  padding: 0.75rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+button.reflect:hover:not(:disabled) {
+  background: var(--moss-dark);
+}
+
+button.reflect:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button.reflect:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.error {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #8a3d3d;
+  background: #f6e9e7;
+  border: 1px solid #e3c3bf;
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+}
+
+.note {
+  margin-top: 2.5rem;
+  background: var(--plum-soft);
+  border-left: 3px solid var(--plum);
+  border-radius: 4px;
+  padding: 1.3rem 1.4rem;
+  transform: rotate(-0.3deg);
+  animation: settle 0.35s ease-out;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: rotate(-0.3deg) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-0.3deg) translateY(0);
+  }
+}
+
+.note-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin-bottom: 0.55rem;
+}
+
+.note-body {
+  font-family: var(--font-display);
+  font-size: 1.14rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .wordmark {
+    font-size: 2.15rem;
+  }
+  textarea.entry {
+    padding-left: 3.2rem;
+  }
+  .entry-wrap::before {
+    left: 34px;
+  }
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  button.reflect {
+    width: 100%;
+  }
+}
