@@ -1,4 +1,5 @@
 # Mindtrace
+   ![Mindtrace screenshot](docs/mindtrace_screenshot_1.png)
 
 A private mental health journal. Write an entry, Claude reflects on it once,
 nothing is saved. This is the week-1 build: stateless, no login, no database.
