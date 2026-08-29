@@ -1,4 +1,5 @@
 # Mindtrace
+**Stack:** Next.js (App Router) · Claude API (Haiku) · Vercel
    ![Mindtrace screenshot](docs/mindtrace_screenshot_1.png)
 
 A private mental health journal. Write an entry, Claude reflects on it once,
@@ -68,6 +69,15 @@ capped at 300 tokens, so testing costs a small fraction of a cent per entry.
 You do need a payment method on your Anthropic Console account — there's a
 small free trial credit for new accounts, but no ongoing free tier for API
 use (the free Claude.ai chat app is separate from this).
+
+## Known limitations
+
+- **Crisis detection is single-layer.** Whether an entry gets a reflection
+  or a 988 redirect is decided by one Claude call in one pass, with no
+  independent check behind it. It hasn't been adversarially tested against
+  ambiguous or indirect crisis language.
+- **No rate limiting.** The `/api/insight` route has no request throttling,
+  so it's currently possible to hammer the endpoint and run up API costs.
 
 ## Where to go next (weeks 2+)
 
