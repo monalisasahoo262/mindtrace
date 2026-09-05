@@ -94,6 +94,20 @@ export default function Home() {
         the US, the 988 Suicide &amp; Crisis Lifeline (call or text 988) can
         help in ways this can't.
       </div>
+
+      <div className="badge-row">
+        <a
+          href="https://philomathlearning.com/studio?utm_source=member_project&utm_medium=badge&utm_campaign=vcs_gallery"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="https://philomathlearning.com/badges/vcs-light.svg"
+            alt="Built with love in the Philomath Vibe Coding Studio"
+            height="38"
+          />
+        </a>
+      </div>
     </main>
   );
 }

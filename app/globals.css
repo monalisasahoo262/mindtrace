@@ -258,3 +258,27 @@ button.reflect:disabled {
     width: 100%;
   }
 }
+
+.badge-row {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.badge-row a {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ink);
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.badge-row a:hover {
+  opacity: 0.85;
+}
+
+.badge-row img {
+  display: block;
+}
